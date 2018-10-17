@@ -1,0 +1,37 @@
+\mode<presentation>
+
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\footnotesize, series=\mdseries}
+
+
+\defbeamertemplate*{frametitle}{SimplePurple}[1][]{
+    \vskip0.01\paperheight%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.1\paperheight]{frametitle}
+        \begin{tikzpicture}
+            \useasboundingbox(0, 0) rectangle (\the\paperwidth, 0.12\paperheight);
+            \fill[myPurple] (0.01\paperwidth, 0)
+                             rectangle (0.99\paperwidth, 0.101\paperheight);
+            {\node[anchor=west, font=\usebeamerfont{frametitle}] at (0,0.61){\hspace{5pt}\MakeUppercase\insertframetitle};%
+            \node[anchor= west, myLPurple, font=\usebeamerfont{framesubtitle}] at (0,0.21){\hspace{15pt}\insertframesubtitle};}%
+        \end{tikzpicture}
+    \end{beamercolorbox}
+}
+
+
+% make footer [author  |  short title  | page#]
+% you need to manually suppress footer on title page (as seen in sample)
+\setbeamertemplate{footline}{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=8pt]{footlinecolor}%
+            \vspace*{-4.5pt%
+            \hspace{10pt}%
+            \insertauthor%
+            \hfill%
+            \insertshorttitle%
+            \hfill%
+            \insertframenumber\,/\,\inserttotalframenumber%
+            \hspace{10pt}%
+            }
+        \end{beamercolorbox}%
+}
+
+\mode<all>

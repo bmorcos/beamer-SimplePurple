@@ -1,0 +1,34 @@
+\documentclass{beamer}
+
+\title[Short Title]{Longer Full Sample Title}
+\subtitle{Sample Subtitle}
+\author{Ben Morcos}
+\date{October 15, 2018}
+
+\usetheme{SimplePurple}
+\begin{document}
+
+	{ %explicitly remove footer from title
+	\setbeamertemplate{footline}{}
+	\frame {
+		\titlepage
+	}}
+
+	\frame {
+		\frametitle{Sample Page 1}
+		\[\frac{-b \pm \sqrt{b^2 - c}}{2a}\]
+	}
+	\frame{
+		\frametitle{Sample Page 2}
+		\framesubtitle{An Example of Lists}
+		\begin{itemize}
+			\item 1
+			\item 2
+			\item 3
+		\end{itemize}
+	}
+	\frame{
+	    \frametitle{Paragraph Content}
+	    This is a paragraph.
+	}
+\end{document}

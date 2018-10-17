@@ -1,0 +1,40 @@
+\mode<presentation>
+
+
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0, 0) rectangle(\the\paperwidth, \the\paperheight);
+        \fill[color=myPurple] (0.01\paperwidth, 0.011\paperheight)
+                                rectangle(0.99\paperwidth, 0.5\paperheight);
+        \ifnum\thepage>1\relax%
+            \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \fi
+    \end{tikzpicture}
+
+}
+
+
+\setbeamerfont{title}{size=\huge, series=\bfseries}
+\setbeamerfont{subtitle}{size=\large, series=\mdseries}
+\setbeamerfont{author}{size=\small}
+
+\defbeamertemplate*{title page}{SimplePurple}[1][]
+{
+    \vskip3cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{title}
+        \usebeamerfont{title}\MakeUppercase\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip5pt%
+    \begin{beamercolorbox}[wd=12cm,leftskip=15pt,#1]{subtitle}
+        \usebeamerfont{subtitle}\insertsubtitle\par%
+    \end{beamercolorbox}%
+    \vskip3.8cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{author}
+        \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+    % \vskip5pt%
+    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{date}
+        \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+
+}
