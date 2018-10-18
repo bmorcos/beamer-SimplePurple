@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usepackage{blindtext}
 
 \title[Short Title]{Longer Full Sample Title}
 \subtitle{Sample Subtitle}
@@ -15,20 +16,39 @@
 	}}
 
 	\frame {
-		\frametitle{Sample Page 1}
-		\[\frac{-b \pm \sqrt{b^2 - c}}{2a}\]
+		\frametitle{Mathmode}
+		This is the quadratic equation:
+		\begin{align}
+			\frac{-b \pm \sqrt{b^2 - c}}{2a}
+		\end{align}
 	}
 	\frame{
-		\frametitle{Sample Page 2}
-		\framesubtitle{An Example of Lists}
+		\frametitle{Some bullet points}
+		\framesubtitle{And a lists!}
 		\begin{itemize}
 			\item 1
+			\begin{itemize}
+				\item 1.1
+			\end{itemize}
 			\item 2
 			\item 3
 		\end{itemize}
+
+		Text between? \\
+
+		Why not.
+
+		\begin{enumerate}
+			\item A thing
+			\begin{enumerate}
+				\item A related thing
+				\item \alert{An important thing}
+			\end{enumerate}
+			\item Another thing
+		\end{enumerate}
 	}
 	\frame{
 	    \frametitle{Paragraph Content}
-	    This is a paragraph.
+	    \blindtext
 	}
 \end{document}
