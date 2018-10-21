@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{blindtext}
+\usepackage{graphicx}
 
 \title[Short Title]{Longer Full Sample Title}
 \subtitle{Sample Subtitle}
@@ -9,11 +10,9 @@
 \usetheme{SimplePurple}
 \begin{document}
 
-	{ %explicitly remove footer from title
-	\setbeamertemplate{footline}{}
 	\frame {
 		\titlepage
-	}}
+	}
 
 	\frame {
 		\frametitle{Mathmode}
@@ -50,5 +49,16 @@
 	\frame{
 	    \frametitle{Paragraph Content}
 	    \blindtext
+	}
+
+	\frame{
+		\frametitle{Figures}
+		\framesubtitle{With caption}
+		\begin{figure}
+			\centering
+	    	\includegraphics[height=0.6\textheight]{stickman.jpg}
+	    	\vspace{-10pt}
+	    	\caption{I found this on google}
+	    \end{figure}
 	}
 \end{document}
