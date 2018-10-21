@@ -1,9 +1,6 @@
 \mode<presentation>
 
 % frame title bar
-\setbeamerfont{frametitle}{size=\large, series=\bfseries}
-\setbeamerfont{framesubtitle}{size=\footnotesize, series=\mdseries}
-
 \defbeamertemplate*{frametitle}{SimplePurple}[1][]{
     \vskip0.01\paperheight%
     \begin{beamercolorbox}[wd=\paperwidth,ht=0.1\paperheight]{frametitle}
@@ -19,27 +16,14 @@
 
 
 % make footer [author  |  short title  | page#]
-% you need to manually suppress footer on title page (as seen in sample)
 \setbeamertemplate{footline}{%
-        % \begin{beamercolorbox}[wd=\paperwidth,ht=8pt]{footlinecolor}%
-        %     \vspace*{-4.5pt%
-        %     \hspace{10pt}%
-        %     \insertauthor%
-        %     \hfill%
-        %     \insertshorttitle%
-        %     \hfill%
-        %     \insertframenumber\,/\,\inserttotalframenumber%
-        %     \hspace{10pt}%
-        %     }
-        % \end{beamercolorbox}%
-
-
     \begin{tikzpicture}
         \useasboundingbox (0, 0) rectangle(\the\paperwidth, 0.035\paperheight);
         \ifnum\thepage>1\relax%
             \fill[color=myLPurple] (0, 0) rectangle (\the\paperwidth, 0.035\paperheight);
             \node[anchor=west, myBlack] at (0,0.175){\hspace{5pt}\insertauthor};
-            \node[anchor=center, myBlack] at (0.5\paperwidth,0.175){\insertshorttitle};
+            \node[anchor=center, myBlack] at (0.5\paperwidth,0.175)
+                {\let\hyperlink\@secondoftwo\insertshorttitle};
             \node[anchor=east, myBlack] at (0.985\paperwidth,0.175){
                 \insertframenumber\,/\,\inserttotalframenumber};
         \fi
