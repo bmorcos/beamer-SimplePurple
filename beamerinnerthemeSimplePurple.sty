@@ -38,7 +38,13 @@
 
 % Bullet shapes
 \setbeamertemplate{itemize item}[triangle]
-\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize subitem}{
+    \begin{tikzpicture}%
+        \draw (0,0.7ex) -- (0,0) -- (0.75em,0);
+        \draw (0.55em,0.2em) -- (0.75em,0) -- (0.55em,-0.2em);
+      \end{tikzpicture}%
+
+}
 \setbeamertemplate{enumerate subitem}{\alph{enumii}.}
 
 % Remove caption prefixes
