@@ -1,12 +1,14 @@
 \mode<presentation>
 
 % make background for title frame, and set other frames to blank
+%https://www.pngkey.com/maxpic/u2a9o0y3o0q8e6o0/
 \setbeamertemplate{background}{
     \begin{tikzpicture}
         \useasboundingbox (0, 0) rectangle(\the\paperwidth, \the\paperheight);
         \fill[color=myWhite] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \fill[color=myPurple] (0.01\paperwidth, 0.011\paperheight)
-                                rectangle(0.99\paperwidth, 0.5\paperheight);
+        \node[anchor=center, xshift=0.5cm, opacity=0.85] at (0.5\paperwidth,0.5\paperheight)
+            {\includegraphics[height=\paperheight, width=2.\paperwidth]
+            {streak.png}};%
         \ifnum\thepage>1\relax%
             \fill[myWhite,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
         \fi
@@ -17,7 +19,7 @@
 % make title frame
 \defbeamertemplate*{title page}{SimplePurple}[1][]
 {
-    \vskip3cm%
+    \vskip1.5cm%
     \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{title}
         \usebeamerfont{title}\MakeUppercase\inserttitle\par%
     \end{beamercolorbox}%
@@ -25,12 +27,12 @@
     \begin{beamercolorbox}[wd=12cm,leftskip=15pt,#1]{subtitle}
         \usebeamerfont{subtitle}\insertsubtitle\par%
     \end{beamercolorbox}%
-    \vskip3.8cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{author}
+    \vskip4.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1,right]{author}
         \usebeamerfont{author}\insertauthor%
     \end{beamercolorbox}
     % \vskip5pt%
-    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1]{date}
+    \begin{beamercolorbox}[wd=12cm,leftskip=5pt,#1,right]{date}
         \usebeamerfont{author}\insertdate%
     \end{beamercolorbox}
 
@@ -49,3 +51,21 @@
 
 % Remove caption prefixes
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+%automatically generate section frame
+%https://www.kissclipart.com/why-dont-we-clipart-why-dont-we-something-differen-rp3xsj/
+\AtBeginSection{\frame{\sectionpage}}
+\defbeamertemplate*{section page}{ABR}[1][]
+{
+    \begin{tikzpicture}
+        \useasboundingbox (0, 0) rectangle(\the\paperwidth, \the\paperheight);
+        \node[anchor=center, xshift=-0.5cm, yshift=0.cm, opacity=0.5] at
+            (0.5\paperwidth,0.5\paperheight)
+            {\includegraphics[height=\the\paperheight, width=\the\paperwidth]
+            {splotch.png}};%
+        \node[anchor=center, font=\usebeamerfont{sectiontitle}, myBlack] at
+            (0.5\linewidth,0.5\paperheight)
+            {\let\hyperlink\@secondoftwo\centering\insertsection};
+    \end{tikzpicture}
+
+}
